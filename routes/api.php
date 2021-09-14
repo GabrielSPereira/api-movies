@@ -25,10 +25,10 @@ Route::get('/ping', function (Request $request) {
 
 Route::get('/movies', [MovieController::class, 'all']);
 
-// Route::get('/note/{id}', '');
+Route::get('/movie/{id}', [MovieController::class, 'one']);
 
-// Route::post('/note', '');
+// Route::post('/movie', '');
 
-// Route::put('/note/{id}', '');
+// Route::put('/movie/{id}', '');
 
-// Route::delete('/note/{id}', '');
+// Route::delete('/movie/{id}', '');

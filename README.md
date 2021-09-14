@@ -1,6 +1,6 @@
 ENDPOINTS
-- (GET) /api/notes
-- (GET) /api/note/123
-- (POST) /api/note (title, body)
-- (PUT) /api/note/123 (title, body)
-- (DELETE) /api/note/123
+- (GET) /api/movies
+- (GET) /api/movie/123
+- (POST) /api/movie (title, body)
+- (PUT) /api/movie/123 (title, body)
+- (DELETE) /api/movie/123

@@ -24,4 +24,16 @@ class MovieController extends Controller
 
         return $this->array;
     }
+
+    public function one($id) {
+        $movie = Movie::find($id);
+
+        if($movie) {
+            $this->array['result'] = $movie;
+        }else{
+            $this->array['error'] = 'ID not found';
+        }
+
+        return $this->array;
+    }
 }
