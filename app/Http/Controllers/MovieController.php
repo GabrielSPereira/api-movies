@@ -58,4 +58,32 @@ class MovieController extends Controller
 
         return $this->array;
     }
+
+    public function edit(Request $request, $id) {
+        $title = $request->input('title');
+        $body = $request->input('body');
+        
+        if($title && $body && $id) {
+            $movie = Movie::find($id);
+
+            if($movie) {
+                $movie->title = $title;
+                $movie->body = $body;
+                $movie->save();
+
+                $this->array['result'] = [
+                    'id' => $id,
+                    'title' => $title,
+                    'body' => $body
+                ];
+            }else{
+                $this->array['error'] = 'ID not found';
+            }
+            
+        }else{
+            $this->array['error'] = 'Fields not found';
+        }
+
+        return $this->array;
+    }
 }
