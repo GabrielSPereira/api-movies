@@ -36,4 +36,26 @@ class MovieController extends Controller
 
         return $this->array;
     }
+    
+    public function new(Request $request) {
+        $title = $request->input('title');
+        $body = $request->input('body');
+        
+        if($title && $body) {
+            $movie = new Movie();
+            $movie->title = $title;
+            $movie->body = $body;
+            $movie->save();
+
+            $this->array['result'] = [
+                'id' => $movie->id,
+                'title' => $title,
+                'body' => $body
+            ];
+        }else{
+            $this->array['error'] = 'Fields not found';
+        }
+
+        return $this->array;
+    }
 }

@@ -27,7 +27,7 @@ Route::get('/movies', [MovieController::class, 'all']);
 
 Route::get('/movie/{id}', [MovieController::class, 'one']);
 
-// Route::post('/movie', '');
+Route::post('/movie', [MovieController::class, 'new']);
 
 // Route::put('/movie/{id}', '');
 
