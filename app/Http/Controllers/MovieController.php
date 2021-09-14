@@ -86,4 +86,16 @@ class MovieController extends Controller
 
         return $this->array;
     }
+
+    public function delete($id) {
+        $movie = Movie::find($id);
+
+        if($movie) {
+            $movie->delete();
+        }else{
+            $this->array['error'] = 'ID not found';
+        }
+
+        return $this->array;
+    }
 }
