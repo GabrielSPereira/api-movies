@@ -30,11 +30,11 @@ class MovieController extends Controller
 
         if($movie) {
             $this->array['result'] = $movie;
+            return response()->json($this->array, 200); 
         }else{
             $this->array['error'] = 'ID not found';
+            return response()->json($this->array, 404); 
         }
-
-        return $this->array;
     }
     
     public function new(Request $request) {
@@ -54,6 +54,7 @@ class MovieController extends Controller
             ];
         }else{
             $this->array['error'] = 'Fields not found';
+            return response()->json($this->array, 403); 
         }
 
         return $this->array;
@@ -78,10 +79,12 @@ class MovieController extends Controller
                 ];
             }else{
                 $this->array['error'] = 'ID not found';
+                return response()->json($this->array, 404); 
             }
             
         }else{
             $this->array['error'] = 'Fields not found';
+            return response()->json($this->array, 403); 
         }
 
         return $this->array;
@@ -94,6 +97,7 @@ class MovieController extends Controller
             $movie->delete();
         }else{
             $this->array['error'] = 'ID not found';
+            return response()->json($this->array, 404); 
         }
 
         return $this->array;
