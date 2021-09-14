@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get('/ping', function (Request $request) {
     return ['pong' => true];
 });
 
-// Route::get('/notes', '');
+Route::get('/movies', [MovieController::class, 'all']);
 
 // Route::get('/note/{id}', '');
 
